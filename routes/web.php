@@ -16,17 +16,27 @@ Route::get('/', function () {
 });
 
 Route::group(['namespace'=>'Auth'], function () {
+    //Views
     Route::get('/login', 'LoginController@showLoginForm');
-    Route::post('/login', 'LoginController@login');
-    Route::post('/logout', 'LoginController@logout');
+
+    //Apis
+    Route::group(['prefix' => 'api'], function () {
+        Route::post('login', 'LoginController@login');
+        Route::post('logout', 'LoginController@logout');
+    });
 });
 
 
 Route::group(['namespace'=>'Agent', 'prefix'=> "agent"], function (){
-    Route::post('/create', 'AgentController@create');
+    Route::post('create', 'AgentController@create');
     Route::get('/', 'AgentController@index');
     Route::post('/verify', 'AgentController@verify');
     Route::post('/decline', 'AgentController@decline');
+});
+
+Route::group(['namespace'=> 'Wallet', 'prefix'=>'wallet'], function (){
+    Route::post('/credit', 'WalletController@credit');
+    Route::post('/debit', 'WalletController@debit');
 });
 
 
