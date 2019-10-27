@@ -76,7 +76,7 @@ class Agent extends Model
 
     public function updateAgent(int $id, $data) {
         $agent = $this->getAgentById($id);
-        return $this->$agent->update($data);
+        return $agent->update($data);
     }
 
     public function deleteAgent(int $id) {
