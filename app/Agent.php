@@ -7,8 +7,6 @@ use App\User;
 
 class Agent extends Model
 {
-
-
     protected $fillable = [
         'user_id', 'bvn', 'id_front', 'id_back', 'id_no', 'street', 'city', 'state_id', 'status'
     ];
@@ -66,6 +64,4 @@ class Agent extends Model
     public function user(){
         return $this->belongsTo("App\User", 'user_id', 'id');
     }
-
-
 }

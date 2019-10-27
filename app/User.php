@@ -38,9 +38,8 @@ class User extends Authenticatable
     ];
 
     /**
-     * @param
-     *
-     *  @return Users
+     * Returns a collection of all users in the database
+     * @return User[]|\Illuminate\Database\Eloquent\Collection
      */
     public function getAllUsers()
     {
@@ -56,13 +55,9 @@ class User extends Authenticatable
     public function getUserById($id)
     {
         return User::find($id);
-
     }
 
     public function agent(){
         return $this->hasOne('App\Agent');
     }
-
-
-
 }

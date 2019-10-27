@@ -16,9 +16,14 @@ Route::get('/', function () {
 });
 
 Route::group(['namespace'=>'Auth'], function () {
+    //Views
     Route::get('/login', 'LoginController@showLoginForm');
-    Route::post('/login', 'LoginController@login');
-    Route::post('/logout', 'LoginController@logout');
+
+    //Apis
+    Route::group(['prefix' => 'api'], function () {
+        Route::post('login', 'LoginController@login');
+        Route::post('logout', 'LoginController@logout');
+    });
 });
 
 
