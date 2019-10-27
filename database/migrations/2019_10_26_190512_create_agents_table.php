@@ -24,6 +24,7 @@ class CreateAgentsTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->unsignedBigInteger('state_id');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
