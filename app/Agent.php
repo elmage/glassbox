@@ -32,10 +32,25 @@ class Agent extends Model
         return User::getUserById($id)->agent();
     }
 
+    /**
+     * Create Agent
+     *
+     * @param $id, $data,
+     *
+     * @return Agent
+     */
+
     public function createAgent(int $id, $data, User $user){
         $user = $user->getUserById($id);
         return  $user->agent()->create($data);
     }
+
+    /**
+     * Verify Agent
+     * @param $id
+     *
+     * @return Agent
+     */
 
     public function verifyAgent(int $id){
         $verified = 2;
@@ -43,6 +58,13 @@ class Agent extends Model
         $this->$agent->status->$verified;
         return $agent;
     }
+
+    /**
+     * Verify Agent
+     * @param $id
+     *
+     * @return Agent
+     */
 
     public function declineAgent(int $id){
         $declined = 3;
@@ -52,12 +74,15 @@ class Agent extends Model
     }
 
 
-    public function editAgent() {
-
+    public function updateAgent(int $id, $data) {
+        $agent = $this->getAgentById($id);
+        return $this->$agent->update($data);
     }
 
-    public function deleteAgent() {
-
+    public function deleteAgent(int $id) {
+        $agent = $this->getAgentById($id);
+        $agent->delete();
+        return true;
     }
 
 

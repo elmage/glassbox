@@ -15,7 +15,6 @@ class AgentController extends Controller
         return response()->json([
             "status" => 'success',
             "Message" => 'Agent working'
-
         ], 200);
     }
 
@@ -34,10 +33,12 @@ class AgentController extends Controller
         return response()->json([
             "status" => "success",
             "message" => "Agent Verified",
+
             "data" => $agent->verifyAgent(Auth::id())
         ], 200);
 
     }
+
 
     public function decline(Agent $agent){
         return response()->json([
@@ -47,6 +48,4 @@ class AgentController extends Controller
         ], 200);
 
     }
-
-
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -59,5 +60,12 @@ class User extends Authenticatable
 
     public function agent(){
         return $this->hasOne('App\Agent');
+    }
+
+    public function wallet(){
+        return $this->hasOne("App\Wallet\Wallet");
+    }
+    public function walletHistory(){
+        return $this->hasMany("App\Wallet\Wallet");
     }
 }
