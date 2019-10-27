@@ -37,8 +37,32 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @param
+     *
+     *  @return Users
+     */
     public function getAllUsers()
     {
         return $this->all();
     }
+
+
+    /**
+     * @param $id
+     *
+     *  @return User
+     */
+    public function getUserById($id)
+    {
+        return User::find($id);
+
+    }
+
+    public function agent(){
+        return $this->hasOne('App\Agent');
+    }
+
+
+
 }
