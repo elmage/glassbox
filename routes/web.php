@@ -25,3 +25,11 @@ Route::group(['namespace'=>'Auth'], function () {
         Route::post('logout', 'LoginController@logout');
     });
 });
+
+
+Route::group(['namespace'=>'Agent', 'prefix'=> "agent"], function (){
+    Route::post('/create', 'AgentController@create');
+    Route::get('/', 'AgentController@index');
+    Route::post('/verify', 'AgentController@verify');
+    Route::post('/decline', 'AgentController@decline');
+});

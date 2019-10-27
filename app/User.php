@@ -45,4 +45,19 @@ class User extends Authenticatable
     {
         return $this->all();
     }
+
+
+    /**
+     * @param $id
+     *
+     *  @return User
+     */
+    public function getUserById($id)
+    {
+        return User::find($id);
+    }
+
+    public function agent(){
+        return $this->hasOne('App\Agent');
+    }
 }
