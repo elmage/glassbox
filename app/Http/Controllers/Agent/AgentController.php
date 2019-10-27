@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\agent;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AgentRequest;
 use Illuminate\Http\Request;
 use App\Agent;
-use Http\Requests\AgentRequest;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AgentController extends Controller
 {
@@ -22,12 +22,12 @@ class AgentController extends Controller
 
     public function create(AgentRequest $request){
 
-    $validated = $request->validated();
-    return response()->json([
-        "status" => "success",
-        "message" => "Agent created",
-        "data" => Agent::createAgent(Auth::id(), $validated, Auth::user())
-    ], 200);
+        $validated = $request->validated();
+        return response()->json([
+            "status" => "success",
+            "message" => "Agent created",
+            "data" => Agent::createAgent(Auth::id(), $validated, Auth::user())
+        ], 200);
     }
 
     public function verify(Request $request){

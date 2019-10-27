@@ -52,11 +52,11 @@ class Agent extends Model
     }
 
 
-    public function editAgent(){
+    public function editAgent() {
 
     }
 
-    public function deleteAgent(){
+    public function deleteAgent() {
 
     }
 
