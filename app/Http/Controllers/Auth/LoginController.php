@@ -43,10 +43,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return \response()->json([
-            'status' => 'error'
-        ]);
-        //return response()->file(public_path('/app.js'), ['Content-Type: text/javascript;']);
+        return view('');
     }
 
     public function login(Request $request)

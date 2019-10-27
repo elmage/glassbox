@@ -37,6 +37,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Returns a collection of all users in the database
+     * @return User[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function getAllUsers()
     {
         return $this->all();
