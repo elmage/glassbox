@@ -20,30 +20,30 @@ class AgentController extends Controller
     }
 
 
-    public function create(AgentRequest $request){
+    public function create(AgentRequest $request, Agent $agent){
 
         $validated = $request->validated();
         return response()->json([
             "status" => "success",
             "message" => "Agent created",
-            "data" => Agent::createAgent(Auth::id(), $validated, Auth::user())
+            "data" => $agent->createAgent(Auth::id(), $validated, Auth::user())
         ], 200);
     }
 
-    public function verify(Request $request){
+    public function verify(Request $request, Agent $agent){
         return response()->json([
             "status" => "success",
             "message" => "Agent Verified",
-            "data" => Agent::verifyAgent(Auth::id())
+            "data" => $agent->verifyAgent(Auth::id())
         ], 200);
 
     }
 
-    public function decline(){
+    public function decline(Agent $agent){
         return response()->json([
             "status" => "success",
             "message" => "Agent Request Declined",
-            "data" => Agent::declineAgent(Auth::id())
+            "data" => $agent->declineAgent(Auth::id())
         ], 200);
 
     }
