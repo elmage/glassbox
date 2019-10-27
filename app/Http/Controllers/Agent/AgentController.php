@@ -35,18 +35,12 @@ class AgentController extends Controller
             "status" => "success",
             "message" => "Agent Verified",
             "data" => Agent::verifyAgent(Auth::id())
-        ], 200);
-
-    }
+        ], 200);}
 
     public function decline(){
         return response()->json([
             "status" => "success",
             "message" => "Agent Request Declined",
             "data" => Agent::declineAgent(Auth::id())
-        ], 200);
-
-    }
-
-
+        ], 200);}
 }

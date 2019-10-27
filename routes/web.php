@@ -28,3 +28,5 @@ Route::group(['namespace'=>'Agent', 'prefix'=> "agent"], function (){
     Route::post('/verify', 'AgentController@verify');
     Route::post('/decline', 'AgentController@decline');
 });
+
+
